@@ -2,6 +2,7 @@
 {
     public interface IDisplayable
     {
-        public void Print(string userInput);
+        string GetRepresentation(string userInput);
+        bool VerifyInput(string userInput);
     }
 }

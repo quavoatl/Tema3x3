@@ -1,6 +1,6 @@
 ﻿namespace Tema3x3.Helpers
 {
-    public class Constants
+    public class Characters
     {
         public const string DOT = ".";
         public const string UNDERSCORE = "_";

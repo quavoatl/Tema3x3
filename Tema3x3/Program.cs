@@ -9,11 +9,13 @@ namespace Tema3x3
     {
         static void Main(string[] args)
         {
-       
-            IDisplayable printer = new PrintNumberArray();
-            printer.Print(Console.ReadLine());
-            
-            Console.WriteLine();
+
+            IDisplayable printer = new NumberPrinter();
+            var res = printer.GetRepresentation(Console.ReadLine());
+
+            Console.WriteLine(res);
+
+           
         }
     }
 }

@@ -20,9 +20,9 @@ namespace Tema3x3.ConcreteComponents.Numbers
 
         private Six() { }
 
-        private string _numberRepresentation_Head = Constants.DOT + Constants.UNDERSCORE + Constants.DOT + " ";
-        private string _numberRepresentation_Body = Constants.PIPE + Constants.UNDERSCORE + Constants.DOT + " ";
-        private string _numberRepresentation_Footer = Constants.PIPE + Constants.UNDERSCORE + Constants.PIPE + " ";
+        private string _numberRepresentation_Head = Characters.DOT + Characters.UNDERSCORE + Characters.DOT + " ";
+        private string _numberRepresentation_Body = Characters.PIPE + Characters.UNDERSCORE + Characters.DOT + " ";
+        private string _numberRepresentation_Footer = Characters.PIPE + Characters.UNDERSCORE + Characters.PIPE + " ";
 
         public override string Head { get => _numberRepresentation_Head; set => _numberRepresentation_Head = value; }
         public override string Body { get => _numberRepresentation_Body; set => _numberRepresentation_Body = value; }

@@ -4,7 +4,7 @@ using System.Text;
 using Tema3x3.BaseComponents;
 using Tema3x3.ConcreteComponents.Numbers;
 
-namespace Tema3x3.Helpers
+namespace Tema3x3.ConcreteComponents.CachingService
 {
     public class NumberCacheStorage
     {
