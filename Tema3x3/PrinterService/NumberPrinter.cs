@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Tema3x3.BaseComponents;
-using Tema3x3.ConcreteComponents.CachingService;
+using Tema3x3.CachingService;
 using Tema3x3.Helpers;
 
 namespace Tema3x3.PrinterService
@@ -94,12 +94,13 @@ namespace Tema3x3.PrinterService
 
             else
             {
+                //aici se construiesc partile (head/body/footer) pentru fiecare int
+                //la final de parte se adauga o linie noua pentru a se trece la urmatoarea parte din corpul reprezentarii
                 for (int i = 0; i < 3; i++)
                 {
                     for (int j = 0; j <= intList.Count - 1; j++)
                     {
                         sb.Append(array[j, i]);
-
                     }
                     sb.Append("\n");
                 }
