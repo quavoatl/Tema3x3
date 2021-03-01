@@ -12,7 +12,7 @@ namespace Tema3x3.ConcreteComponents.Numbers
         {
             if (Instance == null)
             {
-                return new Seven();
+                Instance = new Seven();
             }
 
             return Instance;
