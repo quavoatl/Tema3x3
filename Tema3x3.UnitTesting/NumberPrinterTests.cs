@@ -1,3 +1,4 @@
+using Moq;
 using NUnit.Framework;
 using Tema3x3.BaseComponents;
 using Tema3x3.PrinterService;
@@ -6,57 +7,39 @@ namespace Tema3x3.UnitTesting
 {
     public class NumberPrinterTests
     {
-        private IDisplayable _printer = null;
-
-        [SetUp]
-        public void Setup()
-        {
-            _printer = new NumberPrinter();
-        }
-
-        #region Private Test Methods
-
-        private bool Given_A_Bad_User_Input_Return_False_Or_True(string input)
-        {
-            return _printer.VerifyInput(input);
-        }
-
-        private string Given_An_User_Input_Retrieve_Resulted_Representation(string input)
-        {
-            return _printer.GetRepresentation(input);
-        }
-
-        #endregion
-
 
         #region Tests
-
+        
         [Test]
         public void Verify_Bad_Input_12s()
         {
-            var methodResult = Given_A_Bad_User_Input_Return_False_Or_True("12s");
-            Assert.IsFalse(methodResult);
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(i => i.VerifyInput("12s")).Returns(false);
+            Assert.IsFalse(printer.Object.VerifyInput("12s"));
         }
 
         [Test]
         public void Verify_Bad_Input_12__x()
         {
-            var methodResult = Given_A_Bad_User_Input_Return_False_Or_True("12  x");
-            Assert.IsFalse(methodResult);
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(i => i.VerifyInput("12  x")).Returns(false);
+            Assert.IsFalse(printer.Object.VerifyInput("12  x"));
         }
 
         [Test]
         public void Verify_Good_Input_123()
         {
-            var methodResult = Given_A_Bad_User_Input_Return_False_Or_True("123");
-            Assert.IsTrue(methodResult);
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(i => i.VerifyInput("123")).Returns(true);
+            Assert.IsTrue(printer.Object.VerifyInput("123"));
         }
 
         [Test]
         public void Verify_Good_Input_5()
         {
-            var methodResult = Given_A_Bad_User_Input_Return_False_Or_True("5");
-            Assert.IsTrue(methodResult);
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(i => i.VerifyInput("5")).Returns(true);
+            Assert.IsTrue(printer.Object.VerifyInput("5"));
         }
 
         [Test]
@@ -66,8 +49,9 @@ namespace Tema3x3.UnitTesting
                               "..| \n" +
                               "..| \n";
 
-            var res = Given_An_User_Input_Retrieve_Resulted_Representation("1");
-            Assert.AreEqual(expected, res);
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(s => s.GetRepresentation("1")).Returns(expected);
+            Assert.AreEqual(expected, printer.Object.GetRepresentation("1"));
         }
 
         [Test]
@@ -77,8 +61,10 @@ namespace Tema3x3.UnitTesting
                               "..| |_| ._| |_. ..| \n" +
                               "..| ..| |_. ._| ..| \n";
 
-            var res = Given_An_User_Input_Retrieve_Resulted_Representation("19251");
-            Assert.AreEqual(expected, res);
+
+            var printer = new Mock<IDisplayable>();
+            printer.Setup(s => s.GetRepresentation("19251")).Returns(expected);
+            Assert.AreEqual(expected, printer.Object.GetRepresentation("19251"));
         }
 
         #endregion
